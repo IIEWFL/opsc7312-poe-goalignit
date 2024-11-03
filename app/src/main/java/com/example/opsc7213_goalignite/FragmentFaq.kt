@@ -32,10 +32,7 @@ class FragmentFaq : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_faq, container, false)
         val faqList = listOf(
-            com.example.opsc7213_goalignite.FAQItem(
-                "What is the difference between the Free and Paid versions?",
-                "The Free version offers basic features while the Paid version includes advanced functionalities."
-            ),
+
             com.example.opsc7213_goalignite.FAQItem(
                 "What email systems (ESPs) does the app work with?",
                 "The app is compatible with Gmail, Yahoo, Outlook, and more."

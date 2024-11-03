@@ -11,7 +11,7 @@ import com.example.opsc7213_goalignite.model.ToDoModel
 class DatabaseHandler(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
-        private const val DATABASE_VERSION = 1
+        private const val DATABASE_VERSION = 2
         private const val DATABASE_NAME = "toDoListDatabase"
         private const val TABLE_TODO = "todo"
         private const val COLUMN_ID = "id"
