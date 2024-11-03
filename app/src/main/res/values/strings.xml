@@ -64,7 +64,7 @@
     <string name="add_marks">Add Marks</string>
     <string name="enter_marks">Enter marks</string>
     <string name="enter_marks3">Enter marks</string>
-    <string name="google_web_client_id">642886062724-r0vdeq4r2fcai1jo4jgvd6u4e66tc5a3.apps.googleusercontent.com</string>
+    <string name="google_web_client_id" translatable="false">642886062724-r0vdeq4r2fcai1jo4jgvd6u4e66tc5a3.apps.googleusercontent.com</string>
 
     <string name="grades">Grades</string>
     <string name="addgrades">addgrades</string>

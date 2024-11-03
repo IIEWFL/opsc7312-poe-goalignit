@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OPSC7213_GoalIgnite</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="navigation_drawer_open">Bula lao ea ho tsamaea</string>
+    <string name="navigation_drawer_close">Kwala lai ya ho tsamaya</string>
+    <string name="this_is_sample_task_inside_the_application" />
+    <string name="this_is_the_sample_inside_the_application">This is the sample inside the application</string>
+    <string name="new_task">Mosebetsi o Mocha</string>
+    <string name="save">Boloka</string>
+    <string name="to_do_list">Lethathamo la Lintho Tseo U Lokelang ho li Etsa</string>
+    <string name="add_new_item">Kenya ntho e ncha</string>
+    <string name="addcontact">Kenya Lebitso</string>
+    <string name="teachercontacts">Mabitso a Matichere</string>
+    <string name="teacher_contacts">Mabitso a Matichere</string>
+    <string name="teacher_contact">Mabitso a Matichere</string>
+    <string name="add">Kenya </string>
+    <string name="name">Lebitso</string>
+    <string name="subject">Sehlooho</string>
+    <string name="phone_number">Nomoro ea mohala</string>
+    <string name="contact_name">Lebitso la Motho ea Ikopantseng</string>
+    <string name="back">Khutlela</string>
+
+    <string name="logins">Kena</string>
+    <string name="forgot_password">O lebetse password?</string>
+    <string name="email">Imeile</string>
+    <string name="Email">Imeile</string>
+    <string name="password">Password</string>
+    <string name="don_t_have_an_account">Ha o na ak\'haonte?</string>
+    <string name="register">Ngolisa</string>
+    <string name="a">A</string>
+    <string name="or_continue_with">Kapa tswela pele ka</string>
+    <string name="login">Kena</string>
+    <string name="r">R</string>
+    <string name="sign_in_with_google_account">Kena ka ak\'haonte ea Google</string>
+    <string name="login2">Kena</string>
+    <string name="Passwordbtn">Password</string>
+    <string name="email_or_phone_number">Imeile kapa Nomoro ea Fono</string>
+    <string name="signin_with_facebook">Kena ka Facebook</string>
+    <string name="sign_in_with_apple_id">Kena ka ID ea Apple</string>
+    <string name="forgot_password2">O lebetse password?</string>
+    <string name="change_password">Fetola password</string>
+    <string name="rest_your_password">Beha password e ncha</string>
+    <string name="new_password">password e ncha</string>
+    <string name="forgot_password3">O lebetse password?</string>
+    <string name="forgot_password4">O lebetse password?</string>
+    <string name="forgot_password5">O lebetse password?</string>
+    <string name="email5">Imeile</string>
+    <string name="or_continue_with2">Kapa tswela pele ka</string>
+    <string name="google_button">google_btn</string>
+    <string name="facebook_button">facebook_button</string>
+    <string name="apple_btns">apple_button</string>
+    <string name="already_have_an_account">Na u se u na le ak\'haonte?</string>
+    <string name="login6">Kena</string>
+    <string name="registers">Ngolisa</string>
+    <string name="or_continue_with4">Kapa tswela pele ka</string>
+    <string name="registers6">Ngolisa</string>
+    <string name="marks">Makholo</string>
+    <string name="password54">Password</string>
+    <string name="google">google2</string>
+    <string name="facebook">facebook_image</string>
+    <string name="apple">Apple</string>
+    <string name="don_t_have_an_account3">ha u na ak\'haonte</string>
+    <string name="add_marks">Kenya Makholo</string>
+    <string name="enter_marks">Kenya makholo</string>
+    <string name="enter_marks3">Kenya makholo</string>
+    <string name="google_web_client_id" translatable="false">642886062724-r0vdeq4r2fcai1jo4jgvd6u4e66tc5a3.apps.googleusercontent.com</string>
+
+    <string name="grades">Mahloriso</string>
+    <string name="addgrades">Kenya Mahloriso</string>
+    <string name="module_name">Lebitso la Sehlopha</string>
+    <string name="module_percentage">Palo ea liperesente tsa Sehlopha</string>
+    <string name="student_module_mark">Makholo a Moithuti/Sehlopha</string>
+    <string name="module">Sehlopha</string>
+    <string name="mark_percentage">liperesente tsa makholo</string>
+    <string name="theme">Tema</string>
+    <string name="support">Tšehetso</string>
+    <string name="faq">Lipotso Tse Botsoang Hangata</string>
+    <string name="support_form">Foromo ea Tšehetso</string>
+    <string name="language">Puo</string>
+    <string name="change_language">Fetola Puo</string>
+    <string name="profile_management">Taolo ea Boemo</string>
+    <string name="timer">Nako</string>
+</resources>
+

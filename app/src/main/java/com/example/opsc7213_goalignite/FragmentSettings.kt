@@ -1,5 +1,6 @@
 package com.example.opsc7213_goalignite
 
+
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -9,18 +10,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
-
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SwitchCompat
+import java.util.Locale
+import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat.recreate
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.firestore.FirebaseFirestore
-import java.util.Locale
+
+
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -41,8 +44,8 @@ class FragmentSettings : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    private lateinit var themeLayout: LinearLayout
     private lateinit var themeLayouts: LinearLayout
+    private lateinit var themeLayout: LinearLayout
     private lateinit var switchLayout: LinearLayout
     private lateinit var themeArrow: ImageView //Initializes variables
     private lateinit var switchMode: SwitchCompat
@@ -51,17 +54,20 @@ class FragmentSettings : Fragment() {
     private lateinit var changeMyLanguage: Button
     private lateinit var languageSwitch: LinearLayout
     private lateinit var layoutSwitch: LinearLayout
-    private lateinit var supportLayout:LinearLayout
+    private lateinit var supportLayout: LinearLayout
     private lateinit var dropdownLayout: LinearLayout
-    private lateinit var supportFormLayout:LinearLayout
-    private lateinit var profileArrow : ImageView
+    private lateinit var supportFormLayout: LinearLayout
+
+    private var nightMode: Boolean = false
+
+
+    private lateinit var profileArrow: ImageView
     private lateinit var profilelayout: LinearLayout   //Initializes variables
     private lateinit var profileFieldsLayout: LinearLayout
     private lateinit var nameEditText: EditText
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var saveProfileButton: Button
-    private var nightMode: Boolean = false
 
 
     private lateinit var auth: FirebaseAuth
@@ -98,13 +104,25 @@ class FragmentSettings : Fragment() {
         supportFormLayout = view.findViewById(R.id.supportFormLayout)
 
         // Initialize SharedPreferences
-        sharedPreferences = requireActivity().getSharedPreferences("PREFERENCES", Context.MODE_PRIVATE)
+        sharedPreferences =
+            requireActivity().getSharedPreferences("PREFERENCES", Context.MODE_PRIVATE)
         editor = sharedPreferences.edit()
 
         // Load saved theme preference
         val nightMode = sharedPreferences.getBoolean("nightMode", false)
         switchMode.isChecked = nightMode
         updateTheme(nightMode)
+
+
+        themeLayouts.setOnClickListener {
+            // Replace the current fragment with FAQFragment
+            replaceWithFAQFragment()
+        }
+
+        supportFormLayout.setOnClickListener {
+            //replace with current fragment with supportForm
+            replaceWithSupportForm()
+        }
 
         profileArrow = view.findViewById(R.id.profilearrow)
         profilelayout = view.findViewById(R.id.profilelayout)
@@ -128,13 +146,10 @@ class FragmentSettings : Fragment() {
         switchMode = view.findViewById(R.id.switchMode)
 
         // Initialize SharedPreferences
-        sharedPreferences = requireActivity().getSharedPreferences("PREFERENCES", Context.MODE_PRIVATE)
+        sharedPreferences =
+            requireActivity().getSharedPreferences("PREFERENCES", Context.MODE_PRIVATE)
         editor = sharedPreferences.edit()
 
-        themeLayouts.setOnClickListener {
-            // Replace the current fragment with FAQFragment
-            replaceWithFAQFragment()
-        }
 
         // Set click listener for the theme layout
         themeLayout.setOnClickListener {
@@ -156,10 +171,15 @@ class FragmentSettings : Fragment() {
             }
 
         }
-        supportFormLayout.setOnClickListener {
-            //replace with current fragment with supportForm
-            replaceWithSupportForm()
+
+        // Set listener for the switch to toggle theme
+        switchMode.setOnCheckedChangeListener { _, isChecked ->
+            editor.putBoolean("nightMode", isChecked)
+            editor.apply()
+            updateTheme(isChecked)
         }
+
+
         supportLayout.setOnClickListener {
             toggleDropdown()
         }
@@ -173,21 +193,19 @@ class FragmentSettings : Fragment() {
             // Code to show language options
             showChangeLanguageDialog()
         }
-        // Set listener for the switch to toggle theme
-        switchMode.setOnCheckedChangeListener { _, isChecked ->
-            editor.putBoolean("nightMode", isChecked)
-            editor.apply()
-            updateTheme(isChecked)
-        }
-
 
         return view
 
     }
+
     private fun sendMessage() {
         try {
             // Attempt to display a Toast message
-            Toast.makeText(context, "Your profile update request has been sent!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                context,
+                "Your profile update request has been sent!",
+                Toast.LENGTH_SHORT
+            ).show()
 
         } catch (e: Exception) {
             // Handle any errors when trying to display the message
@@ -204,6 +222,7 @@ class FragmentSettings : Fragment() {
         Toast.makeText(context, "Error sending message: ${e.localizedMessage}", Toast.LENGTH_LONG)
             .show()
     }
+
     private fun loadUserData() {
         val user = auth.currentUser
         if (user != null) {
@@ -220,6 +239,7 @@ class FragmentSettings : Fragment() {
                 }
         }
     }
+
     private fun saveProfileData() {
         val updatedName = nameEditText.text.toString() //takes in new profile data
         val updatedEmail = emailEditText.text.toString()
@@ -241,7 +261,8 @@ class FragmentSettings : Fragment() {
             if (updatedPassword.isNotEmpty()) {
                 user.updatePassword(updatedPassword).addOnCompleteListener { task ->
                     if (!task.isSuccessful) {
-                        Toast.makeText(context, "Failed to update password", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Failed to update password", Toast.LENGTH_SHORT)
+                            .show()
                     }
                 }
             }
@@ -260,10 +281,15 @@ class FragmentSettings : Fragment() {
                     )
                     firestore.collection("users").document(user.uid).set(userData)
                         .addOnSuccessListener {
-                            Toast.makeText(context, "Profile updated successfully!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                context,
+                                "Profile updated successfully!",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                         .addOnFailureListener {
-                            Toast.makeText(context, "Failed to update profile", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "Failed to update profile", Toast.LENGTH_SHORT)
+                                .show()
                         }
                 } else {
                     Toast.makeText(context, "Failed to update profile", Toast.LENGTH_SHORT).show()
@@ -272,19 +298,13 @@ class FragmentSettings : Fragment() {
         }
     }
 
-    // Update theme based on the user preference
-    private fun updateTheme(isDarkMode: Boolean) {
-        if (isDarkMode) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        }
-    }
-
     private fun replaceWithFAQFragment() {
         val fragment = FragmentFaq()
         parentFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, fragment) // Replace 'fragment_container' with your actual container ID.
+            .replace(
+                R.id.fragment_container,
+                fragment
+            ) // Replace 'fragment_container' with your actual container ID.
             .addToBackStack(null)
             .commit()
     }
@@ -292,10 +312,14 @@ class FragmentSettings : Fragment() {
     private fun replaceWithSupportForm() {
         val supportFormFragment = SupportForm()
         parentFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, supportFormFragment) // Use the correct container ID here
+            .replace(
+                R.id.fragment_container,
+                supportFormFragment
+            ) // Use the correct container ID here
             .addToBackStack(null)
             .commit()
     }
+
     private fun toggleLayoutSwitch() {
         val layoutSwitch = view?.findViewById<LinearLayout>(R.id.LayoutSwitch)
         if (layoutSwitch?.visibility == View.GONE) {
@@ -304,6 +328,7 @@ class FragmentSettings : Fragment() {
             layoutSwitch?.visibility = View.GONE
         }
     }
+
     private fun toggleDropdown() {
         if (dropdownLayout.visibility == View.GONE) {
             dropdownLayout.visibility = View.VISIBLE
@@ -311,9 +336,10 @@ class FragmentSettings : Fragment() {
             dropdownLayout.visibility = View.GONE
         }
     }
+
     private fun showChangeLanguageDialog() {
         // Languages to display
-        val listItems = arrayOf("isiZulu", "English")
+        val listItems = arrayOf("isiZulu", "English", "Sesotho")
 
         // Create AlertDialog
         val mBuilder = AlertDialog.Builder(requireContext())
@@ -324,23 +350,42 @@ class FragmentSettings : Fragment() {
                     // Zulu
                     setLocale("zu")
                     saveLanguageToPreferences("zu")  // Save the language selection
-                    activity?.recreate()  // Recreate the activity to apply language changes
+                    reloadCurrentFragment()
                 }
+
                 1 -> {
                     // English
                     setLocale("en")
-                    saveLanguageToPreferences("en")  // Save the language selection
-                    activity?.recreate()
+                    saveLanguageToPreferences("en")
+                    reloadCurrentFragment()// Save the language selection
+
+                }
+
+                2 -> {
+                    setLocale("st")
+                    saveLanguageToPreferences("st")
+                    reloadCurrentFragment()// Save the language selection
+
                 }
             }
+
 
             // Dismiss the alert dialog once a language is selected
             dialogInterface.dismiss()
         }
 
+
         // Create and show the dialog
         val mDialog = mBuilder.create()
         mDialog.show()
+    }
+
+    private fun reloadCurrentFragment() {
+        parentFragmentManager.beginTransaction().apply {
+            detach(this@FragmentSettings)
+            attach(this@FragmentSettings)
+            commit()
+        }
     }
 
     private fun setLocale(languageCode: String) {
@@ -348,12 +393,16 @@ class FragmentSettings : Fragment() {
         Locale.setDefault(locale)
         val config = requireContext().resources.configuration
         config.setLocale(locale)
-        requireContext().resources.updateConfiguration(config, requireContext().resources.displayMetrics)
+        requireContext().resources.updateConfiguration(
+            config,
+            requireContext().resources.displayMetrics
+        )
     }
 
     private fun saveLanguageToPreferences(languageCode: String) {
         // Save selected language to SharedPreferences
-        val sharedPref = requireActivity().getSharedPreferences("Settings", android.content.Context.MODE_PRIVATE)
+        val sharedPref =
+            requireActivity().getSharedPreferences("Settings", android.content.Context.MODE_PRIVATE)
         with(sharedPref.edit()) {
             putString("selected_language", languageCode)
             apply()  // Save the changes asynchronously
@@ -362,10 +411,23 @@ class FragmentSettings : Fragment() {
 
     private fun loadLanguageFromPreferences() {
         // Load the saved language from SharedPreferences
-        val sharedPref = requireActivity().getSharedPreferences("Settings", android.content.Context.MODE_PRIVATE)
-        val languageCode = sharedPref.getString("selected_language", "en")  // Default to English if not set
+        val sharedPref =
+            requireActivity().getSharedPreferences("Settings", android.content.Context.MODE_PRIVATE)
+        val languageCode =
+            sharedPref.getString("selected_language", "en")  // Default to English if not set
         setLocale(languageCode!!)
     }
+
+
+    // Update theme based on the user preference
+    private fun updateTheme(isDarkMode: Boolean) {
+        if (isDarkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+    }
+
 
     // Update theme based on the user preference
 
