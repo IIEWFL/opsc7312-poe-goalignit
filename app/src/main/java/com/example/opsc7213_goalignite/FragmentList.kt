@@ -1,17 +1,24 @@
 package com.example.opsc7213_goalignite
 
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
+import android.content.IntentFilter
+import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.opsc7213_goalignite.adapter.ToDoAdapter
 import com.example.opsc7213_goalignite.model.ToDoModel
 import com.example.opsc7213_goalignite.utilis.DatabaseHandler
+import com.example.opsc7213_goalignite.utilis.NetworkUtil.isNetworkAvailable
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 //THIS WHOLE CODE WAS TAKEN FROM YOUTUBE
@@ -40,6 +47,8 @@ class FragmentList : Fragment(), DialogCloseListener {
     private lateinit var fab: FloatingActionButton
     private var taskList: MutableList<ToDoModel> = mutableListOf()
     private lateinit var db: DatabaseHandler
+
+    private var networkChangeReceiver: NetworkChangeReceiver? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,10 +83,31 @@ class FragmentList : Fragment(), DialogCloseListener {
 
         // Handle FloatingActionButton click
         fab.setOnClickListener {
-            AddNewTask().show(parentFragmentManager, AddNewTask.TAG) // Use parentFragmentManager
+            if (isNetworkAvailable(requireContext())) {
+                AddNewTask().show(parentFragmentManager, AddNewTask.TAG) // Show the dialog to add a new task
+            } else {
+                Toast.makeText(requireContext(), "Tasks will sync when the network is online.", Toast.LENGTH_SHORT).show()
+            }
         }
 
         return view
+    }
+
+    override fun onStart() {
+        super.onStart()
+        // Initialize and register the networkChangeReceiver
+        networkChangeReceiver = NetworkChangeReceiver()
+        val intentFilter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
+        requireContext().registerReceiver(networkChangeReceiver, intentFilter)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        // Only unregister the receiver if it was initialized
+        networkChangeReceiver?.let {
+            requireContext().unregisterReceiver(it)
+            networkChangeReceiver = null // Optional: set to null after unregistering
+        }
     }
 
     override fun handleDialogClose(dialog: DialogInterface) {
@@ -85,22 +115,9 @@ class FragmentList : Fragment(), DialogCloseListener {
         taskList.reverse()
         tasksAdapter.setTasks(taskList)
         tasksAdapter.notifyItemInserted(0)
-
     }
 
-
-// use requireContext() instead of 'this' for fragment
-
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FragmentList.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             FragmentList().apply {

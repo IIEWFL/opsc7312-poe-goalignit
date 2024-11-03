@@ -32,10 +32,12 @@ class FragmentFaq : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_faq, container, false)
         val faqList = listOf(
+
             com.example.opsc7213_goalignite.FAQItem(
                 "Does the app have a dark mode?",
                 "Yes, the app supports dark mode! You can enable it in the \"Settings\" menu under \"Display Preferences\" to reduce eye strain during late-night study sessions."
             ),
+
             com.example.opsc7213_goalignite.FAQItem(
                 "What if I have further questions not covered in the FAQ?",
                 "If you have further questions, feel free to reach out to our support team through the \"Contact Us\" section in the app. We’re here to help!"
