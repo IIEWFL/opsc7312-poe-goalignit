@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/imageViewBadge"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:visibility="invisible" /> <!-- Initially set to invisible -->
+
+    <TextView
+        android:id="@+id/textViewBadge"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:textSize="13sp" />
+</LinearLayout>

@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.OPSC7213_GoalIgnite" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+         <item name="colorPrimary">@color/baby_blue</item>
+         <item name="colorAccent">@color/baby_blue</item>
+        <item name="colorContainer">@color/baby_blue</item>
+        <item name="colorSecondary">@color/lavender</item>
+        <item name="colorPrimaryVariant">@color/lavender</item>
+    </style>
+
+    <style name="Theme.OPSC7213_GoalIgnite" parent="Base.Theme.OPSC7213_GoalIgnite" />
+    <style name="ScreenBackground"><item name="android:background">@color/white</item></style>
+    <style name="CardBackground"><item name="android:background">@color/white</item></style>
+    <style name="TextColor"><item name="android:textColor">@color/lavender</item></style>
+
+</resources>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="730dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/Register"
+        android:layout_width="139dp"
+        android:layout_height="50dp"
+        android:text="Register"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:textStyle="bold|italic"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"/>
+
+    <EditText
+        android:id="@+id/rName"
+        android:layout_width="350dp"
+        android:layout_height="55dp"
+        android:hint="Name"
+        android:textSize="19dp"
+        android:background="@drawable/border"
+        android:textColor="@color/grey"
+        android:layout_marginBottom="28dp"
+        android:drawableStart="@drawable/baseline_person"
+        android:layout_gravity="center"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:textColor="@color/grey"
+            android:hint="Email"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="28dp"
+            android:drawableStart="@drawable/baseline_email"
+            android:layout_gravity="center"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/rPassword"
+            android:layout_width="350dp"
+            android:layout_height="55dp"
+            android:hint="Password"
+            android:textSize="19sp"
+            android:background="@drawable/border"
+            android:textColor="@color/grey"
+            android:layout_marginBottom="28dp"
+            android:drawableStart="@drawable/baseline_lock_outline_24"
+            android:layout_gravity="center"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/createpasswordInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/rCPassword"
+            android:layout_width="350dp"
+            android:layout_height="55dp"
+            android:hint="Confirm Password"
+            android:textSize="19dp"
+            android:background="@drawable/border"
+            android:textColor="@color/grey"
+            android:layout_marginBottom="28dp"
+            android:drawableStart="@drawable/baseline_lock_outline_24"
+            android:layout_gravity="center"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="Register"
+        android:textColor="@color/black"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="130dp"
+        android:layout_height="20dp"
+        android:text="OR CONTINUE WITH"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="135dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/rGoogle"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:src="@drawable/google"
+            android:layout_marginEnd="30dp"
+            />
+
+        <ImageView
+            android:id="@+id/rFacebook"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:src="@drawable/facebook"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="165dp"
+        android:layout_height="20dp"
+        android:text="Already have an account?"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="1dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/rLogin"
+        android:layout_width="38dp"
+        android:layout_height="20dp"
+        android:text="Login"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="15dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
+</LinearLayout>

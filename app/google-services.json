@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "642886062724",
+    "project_id": "goalignite-b11e5",
+    "storage_bucket": "goalignite-b11e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642886062724:android:4f0b1f66dde15aa7c7a8d1",
+        "android_client_info": {
+          "package_name": "com.example.opsc7213_goalignite"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642886062724-r0vdeq4r2fcai1jo4jgvd6u4e66tc5a3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLk0fvdhEkKFHLyVwVDVJKwkmCSIbFUhY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642886062724-r0vdeq4r2fcai1jo4jgvd6u4e66tc5a3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

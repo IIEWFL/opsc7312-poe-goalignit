@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentStudy">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp">
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="148dp"
+            android:layout_height="125dp"
+            android:layout_marginStart="40sp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_background"
+            android:drawableBottom="@drawable/gallery_minimalistic_svgrepo_com"
+            android:fontFamily="sans-serif-black"
+            android:text="Gallery"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="148dp"
+            android:layout_height="125dp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="40sp"
+            android:layout_weight="1"
+            android:background="@drawable/button_background"
+            android:drawableBottom="@drawable/cards_fill_svgrepo_com"
+            android:text="Flashcards"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        >
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="148dp"
+            android:layout_height="125dp"
+            android:layout_marginStart="40sp"
+            android:layout_marginEnd="250sp"
+            android:background="@drawable/button_background"
+            android:drawableBottom="@drawable/document_1_svgrepo_com"
+            android:text="Document"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</FrameLayout>
