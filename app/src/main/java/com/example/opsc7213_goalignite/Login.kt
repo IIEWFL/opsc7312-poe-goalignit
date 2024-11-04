@@ -80,6 +80,8 @@ class Login : AppCompatActivity() {
                 super.onAuthenticationSucceeded(result)
                 Toast.makeText(applicationContext, "Authentication succeeded!", Toast.LENGTH_SHORT).show()
 
+                startActivity(Intent(this@Login, MainActivity::class.java))
+                finish()
                 // Check if the user is already signed in
                 val currentUser = auth.currentUser
                 if (currentUser != null) {
