@@ -4,11 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    >
 
     <EditText
         android:id="@+id/nameEditText"
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="48dp"
         android:hint="Name"
         android:background="@drawable/border"
@@ -16,7 +17,7 @@
 
     <TextView
         android:id="@+id/timeTextView"
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="48dp"
         android:text="Select Time"
         android:textSize="18sp"
@@ -27,7 +28,7 @@
 
     <TextView
         android:id="@+id/dateTextView"
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="48dp"
         android:text="Select Date"
         android:textSize="18sp"

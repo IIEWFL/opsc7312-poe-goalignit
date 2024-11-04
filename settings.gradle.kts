@@ -22,6 +22,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "OPSC7213_GoalIgnite"
+rootProject.name = "GoalIgnite"
 include(":app")
  

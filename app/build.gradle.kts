@@ -1,8 +1,10 @@
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
-    id("kotlin-kapt")
+
+
 }
 
 android {
@@ -11,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.opsc7213_goalignite"
-        minSdk = 34
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -46,6 +48,12 @@ android {
             excludes += "/META-INF/notice.txt"
         }
     }
+    dataBinding {
+        enable = true
+    }
+    viewBinding {
+        enable = true
+    }
 }
     dependencies {
         implementation(libs.androidx.core.ktx)
@@ -58,7 +66,7 @@ android {
         implementation(libs.firebase.database)
         implementation(libs.firebase.auth)
         implementation(libs.firebase.firestore.ktx)
-        implementation(platform("com.google.firebase:firebase-bom:33.3.0"))
+        implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
         implementation("com.google.android.gms:play-services-auth:21.2.0")
         implementation(libs.androidx.recyclerview)
         implementation(libs.firebase.firestore)
@@ -81,7 +89,7 @@ android {
         implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
 
         // Glide
-        implementation("com.github.bumptech.glide:glide:4.14.2")
+        implementation("com.github.bumptech.glide:glide:4.16.0")
         annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
 
         // Firebase Auth
@@ -105,5 +113,7 @@ android {
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
 
         implementation ("com.squareup.picasso:picasso:2.5.2")
-        implementation ("androidx.media:media:1.4.0")
+        implementation ("androidx.media:media:1.7.0")
+
+
     }
