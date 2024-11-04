@@ -1,41 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fillViewport="true">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/createButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Create Flashcard" />
 
         <EditText
             android:id="@+id/questionInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter question" />
+            android:background="@drawable/text_border"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:padding="10dp"
+            android:layout_margin="16dp"
+            android:hint="Module"/>
+
+
 
         <EditText
             android:id="@+id/answerInput"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter answer" />
+            android:layout_height="89dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/text_border"
+            android:padding="10dp"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:hint="Question"/>
+
 
         <EditText
             android:id="@+id/moduleInput"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter module" />
+            android:layout_height="96dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/text_border"
+            android:hint="Answer"
+            android:padding="10dp"
+            android:textColor="#000000"
+            android:textSize="25sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
+            <Button
+                android:id="@+id/createButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add"
+                />
+            <Button
+                android:id="@+id/deleteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                />
+            <Button
+                android:id="@+id/updateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Update"
+                />
+        </LinearLayout>
         <LinearLayout
             android:id="@+id/flashcardContainer"
             android:layout_width="match_parent"
