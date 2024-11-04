@@ -20,7 +20,11 @@ interface FlashcardApiService {
     @GET("api/flashcards") //sends post request to create list
     suspend fun getFlashcards(): Response<List<Flashcard>>
 
+    @PUT("api/flashcards/{id}")
+    suspend fun updateFlashcard(@Path("id") id: String, @Body flashcard: Flashcard): Response<Flashcard>
 
+    @DELETE("api/flashcards/{id}")
+    suspend fun deleteFlashcard(@Path("id") id: String): Response<Unit>
 }
 
 

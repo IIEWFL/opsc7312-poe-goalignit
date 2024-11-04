@@ -5,9 +5,9 @@
 const mongoose = require('mongoose');
 
 const flashcardSchema = new mongoose.Schema({
+    module: String,
     question: String,
     answer: String,
-    module: String,
     createdAt: { type: Date, default: Date.now }
 });
 

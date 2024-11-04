@@ -25,7 +25,6 @@ class AddNewTask : BottomSheetDialogFragment() {
     companion object {
         const val TAG = "ActionBottomDialog"
 
-
         fun newInstance(): AddNewTask {
             return AddNewTask()
         }
