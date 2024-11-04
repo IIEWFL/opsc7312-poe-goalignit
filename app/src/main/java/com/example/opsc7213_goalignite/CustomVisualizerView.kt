@@ -7,6 +7,9 @@ import android.graphics.Paint
 import android.media.audiofx.Visualizer
 import android.util.AttributeSet
 import android.view.View
+//Code adapted from Kotlin
+//timer
+//https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.concurrent/timer.html
 
 class CustomVisualizerView : View {
     private var colorIndex = 0 // Index to track the current color

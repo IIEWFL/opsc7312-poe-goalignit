@@ -5,6 +5,9 @@ package com.example.opsc7213_goalignite
 //Code adapted from Learnoset - Learn Coding Online "How to create online timer in Android Studio"
 // available at https://www.youtube.com/@learnoset-learncodingonlin600
 
+//Music code adapted from GeekforGeeks
+//How to Dynamically Add Elements to a ListView in Android? by chait (2022)
+//https://www.geeksforgeeks.org/how-to-dynamically-add-elements-to-a-listview-in-android/
 
 import android.media.MediaPlayer
 import android.os.Bundle

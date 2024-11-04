@@ -13,13 +13,13 @@ import com.example.opsc7213_goalignite.R
 
 class MusicAdapter(
     private val context: Context,
-    private val musicList: List<String>,
+    private val musicList: List<String>, //decalres variables
     private val musicImages: List<Int>
 ) : BaseAdapter() {
 
-    override fun getCount(): Int = musicList.size
+    override fun getCount(): Int = musicList.size //gets lenght of the song
 
-    override fun getItem(position: Int): Any = musicList[position]
+    override fun getItem(position: Int): Any = musicList[position] // places music in a lis
 
     override fun getItemId(position: Int): Long = position.toLong()
 
@@ -29,6 +29,7 @@ class MusicAdapter(
         val musicImage: ImageView = view.findViewById(R.id.music_image)
         val musicTitle: TextView = view.findViewById(R.id.music_title)
 
+        //displays the music and the image
         musicImage.setImageResource(musicImages[position])
         musicTitle.text = musicList[position]
 

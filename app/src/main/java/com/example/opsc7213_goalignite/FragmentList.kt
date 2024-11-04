@@ -25,9 +25,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 //https://www.youtube.com/watch?v=7u5_NNrbQos&list=PLzEWSvaHx_Z2MeyGNQeUCEktmnJBp8136
 //Penguin Coders - TO-DO-LIST APPLICATION
 
-
-
-
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"

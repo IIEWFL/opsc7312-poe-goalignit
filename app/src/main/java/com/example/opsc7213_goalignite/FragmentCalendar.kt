@@ -12,7 +12,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
-
+//Code adapted from Android developers
+//Calender
+//https://developer.android.com/reference/kotlin/android/icu/util/Calendar
 class FragmentCalendar : Fragment() {
 
     private lateinit var db: FirebaseFirestore

@@ -25,6 +25,10 @@ import java.util.concurrent.Executor
 //Login and Register code taken from GeeksforGeeks
 //https://www.geeksforgeeks.org/login-and-registration-in-android-using-firebase-in-kotlin/
 //ayus-Login and Registration in Android using Firebase in Kotlin(2022)
+
+//Biometric authentication feature code adapted from Youtube
+//How to use Biometric Authentication in Kotlin by Android Geek (2022)
+//https://www.youtube.com/watch?v=1VrqUFlW1yA
 class Login : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
@@ -98,7 +102,7 @@ class Login : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Authentication failed", Toast.LENGTH_SHORT).show()
             }
         })
-
+//promts user to login using details if biometric feature does not work
         promptInfo = BiometricPrompt.PromptInfo.Builder()
             .setTitle("Biometric login for Goal Ignite")
             .setSubtitle("Log in using your biometric credential")
@@ -106,8 +110,6 @@ class Login : AppCompatActivity() {
             .build()
 
     }
-
-
 
     private fun loginUser() {
         val email = lEmail.text.toString().trim()

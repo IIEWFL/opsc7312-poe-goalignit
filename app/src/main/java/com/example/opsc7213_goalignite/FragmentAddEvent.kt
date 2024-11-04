@@ -19,7 +19,9 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import java.util.Calendar
-
+//Code adopted from DigitalOcean
+//Android Date Time Picker Dialog by Anupam Chugh (2022)
+//https://www.digitalocean.com/community/tutorials/android-date-time-picker-dialog
 
 class FragmentAddEvent : Fragment() {
 
@@ -51,7 +53,7 @@ class FragmentAddEvent : Fragment() {
             val year = calendar.get(Calendar.YEAR)
             val month = calendar.get(Calendar.MONTH)
             val day = calendar.get(Calendar.DAY_OF_MONTH)
-
+//When selected the layout will show date picker
             val datePickerDialog = DatePickerDialog(
                 requireContext(),
                 { _, selectedYear, selectedMonth, selectedDay ->
@@ -70,7 +72,7 @@ class FragmentAddEvent : Fragment() {
             val calendar = Calendar.getInstance()
             val hour = calendar.get(Calendar.HOUR_OF_DAY)
             val minute = calendar.get(Calendar.MINUTE)
-
+//when selected the layout will show time picker
             val timePickerDialog = TimePickerDialog(
                 requireContext(),
                 { _, selectedHour, selectedMinute ->
@@ -84,13 +86,13 @@ class FragmentAddEvent : Fragment() {
             timePickerDialog.show()
         }
 
-        // Add Button Click Listener
+        // Button to add events to the list view
         addButton.setOnClickListener {
             val name = nameEditText.text.toString().trim()
             if (name.isNotEmpty() && ::selectedDate.isInitialized && ::selectedTime.isInitialized) {
                 val eventId = database.push().key ?: ""
                 val event = Event(id = eventId, name = name, date = selectedDate, time = selectedTime)
-
+//Adds event details to firebase
                 addEventToFirebase(event)
                 Toast.makeText(context, "Event Added", Toast.LENGTH_SHORT).show()
                 parentFragmentManager.beginTransaction()
@@ -104,7 +106,7 @@ class FragmentAddEvent : Fragment() {
 
         return view
     }
-
+//method to add events toi firebase
     private fun addEventToFirebase(event: Event) {
         database.child(event.id).setValue(event).addOnCompleteListener { task ->
             if (task.isSuccessful) {
@@ -117,7 +119,7 @@ class FragmentAddEvent : Fragment() {
             }
         }
     }
-
+//fields are cleared after the event is added
     private fun clearFields() {
         val nameEditText = view?.findViewById<EditText>(R.id.nameEditText)
         nameEditText?.text?.clear()

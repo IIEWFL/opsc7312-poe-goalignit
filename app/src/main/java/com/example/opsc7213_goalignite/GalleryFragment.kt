@@ -23,7 +23,13 @@ import com.google.gson.reflect.TypeToken
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+//SharedPreferences code adapted from Android Developers
+//https://developer.android.com/training/data-storage/shared-preferences
+//Android Developers-Save simple data with SharedPreferences (2024)
 
+//File picker code adapted from Youtube Videos
+//https://www.bing.com/videos/riverview/relatedvideo?q=file+picker+kotlin&mid=87279721F2A47FAF9CB487279721F2A47FAF9CB4&FORM=VIRE
+//IT Wala- ANDROID - FILE PICKER || TUTORIAL IN KOTLIN (2023)
 /**
  * A simple [Fragment] subclass.
  * Use the [GalleryFragment.newInstance] factory method to

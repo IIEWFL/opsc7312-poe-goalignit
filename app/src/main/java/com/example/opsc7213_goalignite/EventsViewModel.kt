@@ -5,12 +5,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.FirebaseFirestore
-
+//Code adapted from Firebase
+//Add data to Cloud Firestore (2024)
+//https://firebase.google.com/docs/firestore/manage-data/add-data
 class EventsViewModel : ViewModel() {
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance() // Initialize Firestore
-    private val _events = MutableLiveData<List<Event>>()
+    private val _events = MutableLiveData<List<Event>>()//List to store events
     val events: LiveData<List<Event>> get() = _events
-
+//Method loads events to the listview
     fun loadEvents() {
         FirebaseFirestore.getInstance().collection("events")
             .get()
@@ -24,7 +26,7 @@ class EventsViewModel : ViewModel() {
             Log.e("EventsViewModel", "Error loading events: ", exception)
         }
     }
-
+//Methoid that adds sigular events to the listview
     fun addEvent(event: Event) {
         db.collection("events")
             .add(event)

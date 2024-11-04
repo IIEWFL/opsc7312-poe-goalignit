@@ -1,7 +1,7 @@
 package com.example.opsc7213_goalignite
 
 import com.google.firebase.firestore.PropertyName
-
+//Data class for events
 data class Event(
     @get:PropertyName("id") @set:PropertyName("id") var id: String = "", // Firestore document ID
     @get:PropertyName("name") @set:PropertyName("name") var name: String = "",

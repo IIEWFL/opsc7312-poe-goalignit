@@ -26,7 +26,9 @@ import java.time.format.DateTimeFormatter
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
-
+//Code adapted deom Android Developers
+//Create a Notification by Android Developers
+//https://developer.android.com/develop/ui/views/notifications/build-notification
 
 class FragmentHome : Fragment() {
 
@@ -89,7 +91,7 @@ class FragmentHome : Fragment() {
         val sdf = SimpleDateFormat("EEEE", Locale.getDefault()) // Use "EEEE" for full day name
         return sdf.format(Date())
     }
-
+//Method to send notification to device
     private fun setupNotifications(events: List<Event>) {
         notificationList.clear() // Clear the notification list to avoid duplicates
 
@@ -108,14 +110,14 @@ class FragmentHome : Fragment() {
             Log.d("FragmentHome", "No events tomorrow to display.")
         }
     }
-
+//Method to create notification when event is tomorrow
     private fun isEventTomorrow(eventDate: String): Boolean {
         val parsedDate = LocalDate.parse(eventDate, formatter)
         val today = LocalDate.now()
         val tomorrow = today.plusDays(1)
         return parsedDate.isEqual(tomorrow)
     }
-
+//Method to create notification
     private fun createNotification(eventName: String, eventTime: String) {
         val notificationMessage = "Tomorrow: '$eventName' at $eventTime" // Notification message format
 
@@ -135,6 +137,7 @@ class FragmentHome : Fragment() {
         Log.d("FragmentHome", "Notification created: $notificationMessage")
     }
 
+//Method asks device for notification permision
     private fun checkNotificationPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {

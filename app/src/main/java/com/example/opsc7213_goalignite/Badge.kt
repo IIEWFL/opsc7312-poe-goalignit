@@ -1,5 +1,6 @@
 package com.example.opsc7213_goalignite
 
+//Data class to create gamification badge
 data class Badge(
     val dayOfWeek: Int, // 1 = Sunday, 2 = Monday, ..., 7 = Saturday
     var isActive: Boolean

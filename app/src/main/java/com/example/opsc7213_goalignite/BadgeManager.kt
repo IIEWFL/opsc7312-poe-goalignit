@@ -4,6 +4,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import java.util.*
 
+//SharedPreferences code adapted from Android Developers
+//https://developer.android.com/training/data-storage/shared-preferences
+//Android Developers-Save simple data with SharedPreferences (2024)
 
 
 class BadgeManager(private val context: Context) {
@@ -30,15 +33,19 @@ class BadgeManager(private val context: Context) {
     }
 
     fun setBadgeActive(dayOfWeek: Int) {
+        // Update the active status of the badge in SharedPreferences
         sharedPreferences.edit().putBoolean("badge_$dayOfWeek", true).apply()
     }
 
+    // Method to reset all badges to inactive (called at the start of a new week)
     private fun resetBadges() {
+        // Begin a SharedPreferences edit transaction
         sharedPreferences.edit().apply {
             for (i in 1..7) {
+                // Set each badge's active status to false
                 putBoolean("badge_$i", false)
             }
-            apply()
+            apply() // Apply the changes
         }
     }
 }
