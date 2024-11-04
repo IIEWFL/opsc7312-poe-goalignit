@@ -1,5 +1,8 @@
 # OPSC7312_PoE_GoalIgnite
 
+
+Link to the demonstration video (YOUTUBE) [-https://youtu.be/unzSwYtSvAQ-](https://youtu.be/unzSwYtSvAQ)
+
 Goal Ignite
 Purpose of the Application
 Goal Ignite is a comprehensive study application designed to empower students by enhancing their study habits and academic performance. With features like biometric authentication, offline sync capabilities, and gamification elements, the app provides a unique learning environment. It aims to help students stay organized, motivated, and connected with essential study resources.
