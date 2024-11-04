@@ -2,6 +2,7 @@ package com.example.opsc7213_goalignite
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -92,6 +93,10 @@ class FragmentAddEvent : Fragment() {
 
                 addEventToFirebase(event)
                 Toast.makeText(context, "Event Added", Toast.LENGTH_SHORT).show()
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, FragmentCalendar())
+                    .addToBackStack(null)
+                    .commit()
             } else {
                 Toast.makeText(context, "Please fill all fields", Toast.LENGTH_SHORT).show()
             }

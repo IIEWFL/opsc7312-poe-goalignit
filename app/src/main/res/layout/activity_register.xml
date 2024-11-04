@@ -20,7 +20,7 @@
 
     <EditText
         android:id="@+id/rName"
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="55dp"
         android:hint="Name"
         android:textSize="19dp"
@@ -36,7 +36,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/rEmail"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
             android:textColor="@color/grey"
@@ -57,7 +57,7 @@
 
         <EditText
             android:id="@+id/rPassword"
-            android:layout_width="350dp"
+            android:layout_width="300dp"
             android:layout_height="55dp"
             android:hint="Password"
             android:textSize="19sp"
@@ -76,7 +76,7 @@
 
         <EditText
             android:id="@+id/rCPassword"
-            android:layout_width="350dp"
+            android:layout_width="300dp"
             android:layout_height="55dp"
             android:hint="Confirm Password"
             android:textSize="19dp"
@@ -96,7 +96,7 @@
         android:layout_gravity="center"/>
 
     <TextView
-        android:layout_width="130dp"
+        android:layout_width="150dp"
         android:layout_height="20dp"
         android:text="OR CONTINUE WITH"
         android:layout_marginTop="15dp"
@@ -124,7 +124,7 @@
     </LinearLayout>
 
     <TextView
-        android:layout_width="165dp"
+        android:layout_width="185dp"
         android:layout_height="20dp"
         android:text="Already have an account?"
         android:layout_marginTop="15dp"
