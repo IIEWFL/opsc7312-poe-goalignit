@@ -17,13 +17,12 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
      private lateinit var drawerLayout: DrawerLayout
-
+    private lateinit var inAppReviewHelper: InAppReviewHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         // Apply theme before setting content view
         val sharedPreferences = getSharedPreferences("PREFERENCES", Context.MODE_PRIVATE)
@@ -81,7 +80,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if (savedInstanceState == null) {
             loadFragment(FragmentHome())
         }
+        // Initialize the InAppReviewHelper
+        inAppReviewHelper = InAppReviewHelper(this)
+
+        someActionCompleted()
     }
+
 
     // Handle NavigationView (sidebar) menu item clicks
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -108,7 +112,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             .replace(R.id.fragment_container, fragment)
             .commit()
     }
-
+    private fun someActionCompleted() {
+        inAppReviewHelper.requestReviewInfo(
+            onReviewInfoReceived = { reviewInfo ->
+                reviewInfo?.let {
+                    // Launch the review flow if ReviewInfo is not null
+                    inAppReviewHelper.launchReviewFlow(this, it)
+                }
+            },
+            onError = { errorCode ->
+                // Handle error (e.g., log the error)
+                errorCode?.let {
+                    // Log or show a message based on the error code
+                }
+            }
+        )
+    }
     // Handle back press to close the drawer if it's open
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {

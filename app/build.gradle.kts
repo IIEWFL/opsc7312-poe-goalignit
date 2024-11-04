@@ -72,6 +72,7 @@ android {
         implementation(libs.firebase.firestore)
         implementation(libs.places)
         implementation(libs.firebase.storage.ktx)
+        implementation(libs.core.ktx)
 
         testImplementation(libs.junit)
         androidTestImplementation(libs.androidx.junit)
@@ -114,6 +115,13 @@ android {
 
         implementation ("com.squareup.picasso:picasso:2.5.2")
         implementation ("androidx.media:media:1.7.0")
+
+
+        // So, make sure you also include that repository in your project's build.gradle file.
+        implementation("com.google.android.play:review:2.0.2")
+
+        // For Kotlin users also import the Kotlin extensions library for Play In-App Review:
+        implementation("com.google.android.play:review-ktx:2.0.2")
 
 
     }
