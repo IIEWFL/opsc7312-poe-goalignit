@@ -22,12 +22,12 @@ Release Notes
 2. 	Initial structure of study content section and gamification features.
 
 #### Version 1 
-•	Login and Register (SSO) – User logins using single sign-on
-•	Study Content API - Integrates with an external study content API, providing users access to a wide range of educational materials, including textbooks, guides, flashcards, and practice questions.
-•	To-Do List - Allows users to create, prioritize, and categorize tasks.
-•	Add Marks - Users can track improvements and identify areas needing focus.
-•	Teacher Contact Info - The application space to store and organize teacher contact information.
-•	Settings- The settings will include profile management for the user to change their email, name and password, theme change (light mod/dark mode). 
+1.	Login and Register (SSO) – User logins using single sign-on
+2.	Study Content API - Integrates with an external study content API, providing users access to a wide range of educational materials, including textbooks, guides, flashcards, and practice questions.
+3.	To-Do List - Allows users to create, prioritize, and categorize tasks.
+4.	Add Marks - Users can track improvements and identify areas needing focus.
+5.	Teacher Contact Info - The application space to store and organize teacher contact information.
+6.	Settings- The settings will include profile management for the user to change their email, name and password, theme change (light mod/dark mode). 
 
 
 #### Version 1.1 - Current Version
