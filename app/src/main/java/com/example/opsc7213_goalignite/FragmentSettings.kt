@@ -297,30 +297,39 @@ class FragmentSettings : Fragment() {
         }
     }
 
+    // Function to replace the current fragment with the FAQ fragment
     private fun replaceWithFAQFragment() {
+        // Create an instance of the FAQ fragment
         val fragment = FragmentFaq()
+        // Begin a transaction to replace the existing fragment in the specified container
         parentFragmentManager.beginTransaction()
             .replace(
-                R.id.fragment_container,
+                R.id.fragment_container, // Replace 'fragment_container' with your actual container ID
                 fragment
-            ) // Replace 'fragment_container' with your actual container ID.
-            .addToBackStack(null)
-            .commit()
+            )
+            .addToBackStack(null) // Add the transaction to the back stack for navigation
+            .commit() // Commit the transaction to apply the changes
     }
 
+    // Function to replace the current fragment with the Support Form fragment
     private fun replaceWithSupportForm() {
+        // Create an instance of the Support Form fragment
         val supportFormFragment = SupportForm()
+        // Begin a transaction to replace the existing fragment in the specified container
         parentFragmentManager.beginTransaction()
             .replace(
-                R.id.fragment_container,
+                R.id.fragment_container, // Use the correct container ID here
                 supportFormFragment
-            ) // Use the correct container ID here
-            .addToBackStack(null)
-            .commit()
+            )
+            .addToBackStack(null) // Add the transaction to the back stack for navigation
+            .commit() // Commit the transaction to apply the changes
     }
 
+    // Function to toggle the visibility of a layout with ID 'LayoutSwitch'
     private fun toggleLayoutSwitch() {
+        // Find the layout with the ID 'LayoutSwitch' within the current view
         val layoutSwitch = view?.findViewById<LinearLayout>(R.id.LayoutSwitch)
+        // Toggle the visibility: if it's currently GONE, make it VISIBLE, otherwise set it to GONE
         if (layoutSwitch?.visibility == View.GONE) {
             layoutSwitch.visibility = View.VISIBLE
         } else {
@@ -328,13 +337,16 @@ class FragmentSettings : Fragment() {
         }
     }
 
+    // Function to toggle the visibility of the dropdown layout
     private fun toggleDropdown() {
+        // Toggle the visibility: if the dropdown layout is currently GONE, make it VISIBLE, otherwise set it to GONE
         if (dropdownLayout.visibility == View.GONE) {
             dropdownLayout.visibility = View.VISIBLE
         } else {
             dropdownLayout.visibility = View.GONE
         }
     }
+
 
     private fun showChangeLanguageDialog() {
         // Languages to display
@@ -379,32 +391,47 @@ class FragmentSettings : Fragment() {
         mDialog.show()
     }
 
+    // Function to reload the current fragment by detaching and re-attaching it
     private fun reloadCurrentFragment() {
+        // Begin a new fragment transaction using the parent fragment manager
         parentFragmentManager.beginTransaction().apply {
+            // Detach the current instance of FragmentSettings to remove it from the view
             detach(this@FragmentSettings)
+            // Re-attach the same instance of FragmentSettings to reload it
             attach(this@FragmentSettings)
+            // Commit the transaction to apply the changes and refresh the fragment
             commit()
         }
     }
 
+
+    // Function to change the app's language/locale based on the given language code
     private fun setLocale(languageCode: String) {
+        // Create a Locale object with the specified language code (e.g., "en" for English)
         val locale = Locale(languageCode)
+        // Set this locale as the default for the app
         Locale.setDefault(locale)
+        // Get the current configuration of the app's resources
         val config = requireContext().resources.configuration
+        // Update the configuration with the new locale
         config.setLocale(locale)
+        // Apply the new configuration and update the display metrics to reflect the language change
         requireContext().resources.updateConfiguration(
             config,
             requireContext().resources.displayMetrics
         )
     }
 
+    // Function to save the selected language code to SharedPreferences for persistence
     private fun saveLanguageToPreferences(languageCode: String) {
-        // Save selected language to SharedPreferences
-        val sharedPref =
-            requireActivity().getSharedPreferences("Settings", android.content.Context.MODE_PRIVATE)
+        // Retrieve the SharedPreferences instance with the name "Settings" in private mode
+        val sharedPref = requireActivity().getSharedPreferences("Settings", android.content.Context.MODE_PRIVATE)
+        // Open an editor to make changes to SharedPreferences
         with(sharedPref.edit()) {
+            // Store the selected language code under the key "selected_language"
             putString("selected_language", languageCode)
-            apply()  // Save the changes asynchronously
+            // Apply the changes asynchronously to save the selected language
+            apply()
         }
     }
 
